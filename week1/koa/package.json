@@ -1,0 +1,15 @@
+{
+    "name": "koa_project",
+    "version": "1.0.0",
+    "description": "This is a koa project for homework",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "npm start"
+    },
+    "author": "Ilker Kurtulan",
+    "license": "ISC",
+    "dependencies": {
+        "koa": "^2.13.4"
+    }
+}
