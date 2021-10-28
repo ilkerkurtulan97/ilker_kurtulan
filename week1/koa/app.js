@@ -19,7 +19,7 @@ app.use(async(ctx, next) => {
 });
 
 
-//Launching the Koa application
+//Launching the Koa application on port 5000
 app.use(async ctx => {
     ctx.body = '<h1>Hello World !</h1>';
 });
