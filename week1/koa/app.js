@@ -18,6 +18,7 @@ app.use(async(ctx, next) => {
     ctx.set('X-Response-Time', `${ms}ms`);
 });
 
+
 //Launching the Koa application
 app.use(async ctx => {
     ctx.body = '<h1>Hello World !</h1>';
