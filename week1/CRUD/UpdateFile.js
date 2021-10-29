@@ -2,7 +2,7 @@ const fs = require('fs');
 const myFile = './employees.json';
 const file = require(myFile)
 
-
+//New update data we want to overwrite
 file.name = "Alper";
 file.salary = "3000";
 
