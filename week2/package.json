@@ -5,8 +5,16 @@
     "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node app.js"
+        "start": "nodemon app.js"
     },
     "author": "Ilker Kurtulan",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^2.0.14",
+        "prettier": "2.4.1"
+    },
+    "dependencies": {
+        "ejs": "^3.1.6",
+        "express": "^4.17.1"
+    }
 }
