@@ -6,7 +6,7 @@ exports.getAllPosts = async(req, res) => {
 };
 
 exports.createPost = async(req, res) => {
-    await Post.create(req.body);
+    await Post.create({...req.body });
     res.redirect("/");
 };
 

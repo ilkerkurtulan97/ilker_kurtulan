@@ -1,7 +1,9 @@
 <%- include('partials/_header') -%>
+    <!-- <%-  -%> -->
 
     <body>
 
+        <!-- Navigation -->
         <%- include('partials/_navigation') -%>
 
             <!-- Page Header -->
@@ -24,23 +26,25 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
 
-                        <% for (let i = 0 ; i< posts.length ; i++ ) { %>
+                        <% for( let i = 0; i < posts.length; i++ ) { %>
                             <div class="post-preview">
                                 <a href="/posts/<%= posts[i]._id %>">
                                     <h2 class="post-title">
                                         <%= posts[i].title %>
                                     </h2>
                                     <h3 class="post-subtitle">
+
                                         <%= posts[i].message %>
                                     </h3>
                                 </a>
                                 <p class="post-meta">Posted by
-                                    <a href="#">Start Bootstrap</a> on
-                                    <%= posts[i].dateCreated.toDateString() %>
-                                </p>
+                                    <a href="#">Ilker Kurtulan</a> on November 03, 2021</p>
                             </div>
                             <hr>
                             <% } %>
+
+
+
                                 <!-- Pager -->
                                 <div class="clearfix">
                                     <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
@@ -51,8 +55,12 @@
 
             <hr>
 
+            <!-- Footer -->
             <%- include('partials/_footer') -%>
 
+                <!-- Bootstrap core JavaScript -->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
                 <!-- Custom scripts for this template -->
                 <script src="js/clean-blog.min.js"></script>

@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const methodOverride = require("method-override");
+const fileUpload = require('express-fileupload')
 const ejs = require('ejs');
 const path = require('path');
 const env = require('dotenv');
@@ -17,15 +19,9 @@ const port = process.env.PORT || 3000;
 
 //Creating our database connection
 mongoose.connect(process.env.MONGO, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => {
-        console.log("Connected the database");
-    })
-    .catch((err) => {
-        console.log("Error occured: ", err);
-    });
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 //Template engine
 app.set('view engine', 'ejs');
@@ -37,12 +33,16 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 //Helps url data to be formatted in json
 app.use(express.json());
-
-
-const myLogger = (req, res, next) => {
-    console.log("Middleware Log 1");
+//Overwriting the existing GET and POST requests
+app.use(methodOverride("_method", { methods: ['POST', 'GET'] }));
+//File upload middleware
+app.use(fileUpload());
+//Showing the path
+app.use((req, res, next) => {
+    console.log("Request: ", req.path);
     next();
-}
+});
+
 
 //Routing
 app.get("/", postController.getAllPosts);
@@ -51,7 +51,7 @@ app.get("/about", pageController.getAboutPage);
 
 app.get("/add_post", pageController.getAddPostPage);
 
-app.get("/post", postController.createPost);
+app.post("/posts", postController.createPost);
 
 app.get("/posts/:id", postController.getPost);
 
