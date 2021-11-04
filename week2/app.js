@@ -2,19 +2,30 @@ const express = require('express');
 const mongoose = require('mongoose');
 const ejs = require('ejs');
 const path = require('path');
-const Photo = require('./model/Photo');
 const env = require('dotenv');
+//Importing database schema
+const Post = require('./model/Post');
+//Importing controllers
+const postController = require("./controller/postController");
+const pageController = require("./controller/pageController");
 
-env.config();
 
 //Creating express app variable
 const app = express()
+env.config();
+const port = process.env.PORT || 3000;
 
 //Creating our database connection
 mongoose.connect(process.env.MONGO, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => {
+        console.log("Connected the database");
+    })
+    .catch((err) => {
+        console.log("Error occured: ", err);
+    });
 
 //Template engine
 app.set('view engine', 'ejs');
@@ -33,48 +44,24 @@ const myLogger = (req, res, next) => {
     next();
 }
 
-//app.use(myLogger);
-
-
-//Get request routing homepage
-/*
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'temp/index.html'));
-});
-*/
-
-
 //Routing
-app.get("/", async(req, res) => {
-    const photos = await Photo.find({});
-    console.log(photos)
-    res.end();
-});
+app.get("/", postController.getAllPosts);
 
-app.get("/about", (req, res) => {
-    res.render('about');
-});
+app.get("/about", pageController.getAboutPage);
 
-app.get("/add_post", (req, res) => {
-    res.render('add_post');
-});
+app.get("/add_post", pageController.getAddPostPage);
 
-app.post("/photos", async(req, res) => {
-    await Photo.create(req.body)
-    res.redirect('/')
-});
+app.get("/post", postController.createPost);
 
+app.get("/posts/:id", postController.getPost);
 
+app.put("/posts/:id", postController.updatePost);
+
+app.delete("/posts/:id", postController.deletePost);
+
+app.get("/posts/edit/:id", pageController.getEditPage);
 
 //Launching the app and listening from port 3000
-const port = 3000;
 app.listen(port, () => {
     console.log(`Sunucu ${port} portunda baslatildi...`);
 });
-
-/*
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`Sunucu ${port} portunda başlatıldı..`);
-});
-*/
