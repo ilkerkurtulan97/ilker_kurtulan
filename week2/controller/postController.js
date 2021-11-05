@@ -20,7 +20,7 @@ exports.updatePost = async(req, res) => {
     post.title = req.body.title;
     post.message = req.body.message;
     post.save();
-    res.redirect(`/posts/:${req.params.id}`);
+    res.redirect(`/posts/${req.params.id}`);
 };
 
 exports.deletePost = async(req, res) => {
