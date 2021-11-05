@@ -59,7 +59,7 @@ app.put("/posts/:id", postController.updatePost);
 
 app.delete("/posts/:id", postController.deletePost);
 
-app.get("/posts/edit/:id", pageController.getEditPage);
+app.get("/posts/edit_post/:id", pageController.getEditPage);
 
 //Launching the app and listening from port 3000
 app.listen(port, () => {

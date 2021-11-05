@@ -37,18 +37,12 @@
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <div class="post-heading">
                             <h1>
-                                <%= posts.title %>
+                                <%= post.title %>
                             </h1>
                             <span class="meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              on <%= posts.dateCreated.toDateString() %></span>
+              <a href="#"> <%= post.creator %></a>
+              on <%= post.dateCreated.toDateString() %></span>
                         </div>
-                    </div>
-                    <div class="col-lg-6 " style="padding-left:15%;margin-bottom:2%;margin-top: -8%;">
-                        <a href="<%= posts._id %>?_method=DELETE" class="btn btn-danger" onclick="return confirm('ARE YOU SURE?')">DELETE</a>
-                    </div>
-                    <div class="col-lg-6" style="padding-left:15%;margin-bottom:2%;margin-top: -8%;">
-                        <a href="edit/<%= posts._id %>" class="btn btn-info">UPDATE</a>
                     </div>
                 </div>
             </div>
@@ -59,8 +53,19 @@
             <div class="container">
                 <div class="row">
                     <h2 class="subheading">
-                        <%= posts.detail %>
+                        <%= post.message %>
                     </h2>
+
+                    <div class="row">
+
+                        <div class="text-center">
+                            <a href="/posts/edit_post/<%= post._id %> " class="btn btn-info">Update Details</a>
+                        </div>
+                        <div class="text-center">
+                            <a href="/posts/<%= post._id %>?_method=DELETE" class="btn btn-danger btn-info" onclick="return confirm('Are you sure you want to delete this post?')">Delete Post</a>
+                        </div>
+
+                    </div>
         </article>
 
         <hr>
