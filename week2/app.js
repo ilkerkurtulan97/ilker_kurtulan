@@ -67,5 +67,5 @@ app.get("/posts/edit_post/:id", pageController.getEditPage);
 
 //Launching the app and listening from port 3000
 app.listen(port, () => {
-    console.log(`Sunucu ${port} portunda baslatildi...`);
+    console.log(`Server started at ${port} ...`);
 });
