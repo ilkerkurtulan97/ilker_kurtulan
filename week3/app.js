@@ -1,12 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
+
 const pageRoute = require('./routes/pageRoute');
-const pageRoute = require('./routes/courseRoute');
+const courseRoute = require('./routes/courseRoute');
+const categoryRoute = require('./routes/categoryRoute');
+const authRoute = require('./routes/authRoute');
 
 //Initializing the express app
 const app = express();
 //Making our db connection
-mongoose.connect(mongoUrl, {
+mongoose.connect('mongodb+srv://admin:q1w2e3r4@cluster0.axghl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
@@ -22,6 +25,8 @@ app.use(express.json());
 
 app.use('/', pageRoute);
 app.use('/course', courseRoute);
+app.use('/category', categoryRoute);
+app.use('/auth', authRoute);
 
 //Defining the port number
 const port = 5000;

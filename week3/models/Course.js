@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 const Schema = mongoose.Schema;
 
 const CourseSchema = new Schema({
@@ -6,7 +7,18 @@ const CourseSchema = new Schema({
     description: { type: String, required: true },
     createdAt: { type: Date, default: Date.now },
     slug: { type: String, unique: true },
-    category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' }
+    category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
+});
+
+//It acts like a middleware
+//Works before functions and everything
+//It literally says have slug the name of the url before the validation
+CourseSchema.pre('validate', function(next){
+    this.slug = slugify(this.name, {
+        lower: true,
+        strict: true
+    })
+    next();
 });
 
 const Course = mongoose.model('Course', CourseSchema);
