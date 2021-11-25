@@ -1,9 +1,9 @@
 import React from 'react'
-
+import "../styling/Header.css";
 export default function Header() {
     return (
         <div>
-            <header>React todos</header>
+            <header className="main-header">React todos by Ilker Kurtulan</header>
         </div>
     )
 }

@@ -1,0 +1,10 @@
+.big-header{
+    text-align: center;
+    margin: 30px;
+}
+
+.todo-list{
+    text-align: center;
+    margin: 5px;
+    background-color: yellow;
+}

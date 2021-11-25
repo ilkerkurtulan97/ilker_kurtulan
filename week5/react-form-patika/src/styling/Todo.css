@@ -1,0 +1,21 @@
+.todo-items{
+    text-align: center;
+    margin: 15px;
+    font-size: 23px;
+}
+
+.todo-icons{
+    text-align: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.edit-icon{
+    margin-right:0px;
+    font-size: 30px;
+}
+
+.delete-icon{
+    margin-right:50px;
+    font-size: 30px;
+}
