@@ -4,6 +4,7 @@ import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
 import "../styling/Todo.css";
 
+//These are props that are coming todo states. We take them and give them as a method inside onClick buttons
 const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   const [edit, setEdit] = useState({
     id: null,
