@@ -1,0 +1,16 @@
+JWT:
+
+HEADERS
+PAYLOAD
+VERIFY SIGNATURE
+
+all 3 sections are responsible for creating the full length of JWT token.
+
+---
+
+In django there is no MODEL VIEW CONTROLLER
+
+THERE IS MODEL,TEMPLATE,VIEW
+
+---
+Migrations are Django's way of propagating changes you make to your models
