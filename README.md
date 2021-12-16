@@ -11,5 +11,13 @@ Week3 -> :heavy_check_mark: SmartEdu project
 Week4 -> :heavy_check_mark: Array methods & React Basics
 ###
 Week5 -> :heavy_check_mark: React form app
-
+###
+Week6 -> :heavy_check_mark: React router / React memo
+###
 # Django
+Week7 -> :heavy_check_mark: Python OOP concepts
+###
+Week8 -> :heavy_check_mark: Django basics / Django REST framework
+
+
+
